@@ -1,0 +1,71 @@
+注文情報入力のnew
+
+<div table style="width:150%;margin-left:10%;margin-top:20px">
+  <h4>支払方法</h4>
+  <%= form_with model:Order.new, url: orders_confirm_path do |f| %>
+  <div class= "pl-4">
+    <%= f.radio_button :payment_method, "credit_card" %>
+    <%= f.label :payment_method_credit_card, "クレジットカード" %>
+  </div>
+  <div class="pl-4">
+   <%= f.radio_button :payment_method, "transfer" %>
+   <%= f.label :payment_method_transfer, "銀行振込" %>
+  </div>
+
+  <h4>お届け先</h4>
+  <div class="pl-4">
+    <%= f.radio_button :select_address, "1" %>
+    <%= f.label :payment_method_address, "ご自身の住所" %>
+  </div>
+  <div class="pl-5">
+    <%= current_customer.postal_code %><%= current_customer.address %>
+  </div>
+  <div class="pl-5">
+    <%= current_customer.last_name %><%= current_customer.first_name %>
+  </div>
+  <div class="pl-4">
+    <%= f.radio_button :select_address, "2" %>
+    <%= f.label :payment_method_address, "登録済住所から選択" %>
+  </div>
+  <div class="pl-5">
+   <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :name) %>
+  </div>
+  <div class="pl-4">
+    <%= f.radio_button :select_address, "3" %>
+    <%= f.label :payment_method_address, "新しいお届け先" %>
+  </div>
+  <div class="pl-5">
+    <div class="form-group row">
+      <div class="col-sm-2 col-form-label">
+        <td>郵便番号(ハイフンなし)</td>
+      </div>
+      <div class="col-sm-10">
+        <td><%= f.text_field :postal_code, autofocus: true %></td>
+      </div>
+    </div>
+  </div>
+  <div class="pl-5">
+    <div class="form-group row">
+      <div class="col-sm-2 col-form-label">
+        <td>住所</td>
+      </div>
+      <div class="col-sm-10">
+        <td><%= f.text_field :address, autofocus: true %></td>
+      </div>
+    </div>
+  </div>
+  <div class="pl-5">
+    <div class="form-group row">
+      <div class="col-sm-2 col-form-label">
+        <td>宛名</td>
+      </div>
+      <div class="col-sm-10">
+        <td><%= f.text_field :name, autofocus: true %></td>
+      </div>
+    </div>
+  </div>
+  <div table style="width:50%;margin-left:10%;margin-top:20px">
+    <%= f.submit "確認画面へ進む", class: "btn btn-info" %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,55 @@
+マイページのshow
+
+<table class="table table-borderless" style="width:17%;margin-left:3%;margin-top:60px">
+  <tbody>
+    <tr>
+      <td><h5>会員情報</h5></td>
+      <td><%= link_to "編集する", customers_infomation_edit_path, class: "btn btn-success" %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-bordered" style="width:25%;margin-left:3%;margin-top:20px">
+  <tbody>
+    <tr>
+      <td class="bg-secondary">氏名</td>
+      <td><%= @customer.last_name %><%= @customer.first_name %></td>
+    </tr>
+    <tr>
+      <td class="bg-secondary">カナ</td>
+      <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="bg-secondary">郵便番号</td>
+      <td><%= @customer.postal_code %></td>
+    </tr>
+    <tr>
+      <td class="bg-secondary">住所</td>
+      <td><%= @customer.address %></td>
+    </tr>
+    <tr>
+      <td class="bg-secondary">電話番号</td>
+      <td><%= @customer.telephone_number %></td>
+    </tr>
+    <tr>
+      <td class="bg-secondary">メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-borderless" style="width:20%;margin-left:3%;margin-top:20px">
+  <tbody>
+    <tr>
+      <td><h5>配達先</h5></td>
+      <td><%= link_to "一覧を見る", addresses_path, class:"btn btn-primary" %></td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+    <tr>
+      <td><h5>注文履歴</h5></td>
+      <td><%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,68 @@
+商品詳細のshow
+
+<div class="container">
+<div class="row">
+<table class="table table-bordered" class="table table-borderless col-3" style="width:20%;margin-left:5%;margin-top:0px">
+  <tbody>
+    <tr>
+      <td>
+        ジャンル検索
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ケーキ
+      </td>
+    </tr>
+    <tr>
+      <td>
+        焼き菓子
+      </td>
+    </tr>
+    <tr>
+      <td>
+        プリン
+      </td>
+    </tr>
+    </tr>
+    <tr>
+      <td>
+        キャンディ
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="col-3">
+<% if @item.image.attached? %>
+  <%= image_tag @item.image, size: "200x150" %>
+  <% else %>
+  <%= image_tag 'sample.png', size: "200x150" %>
+<% end %>
+</div>
+<div class="col-4">
+  <table class="table table-borderless" >
+    <tbody>
+      <tr>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <td><%= @item.introduction %></td>
+      </tr>
+      <tr>
+        <td>￥<%= @item.price %>（税込）</td>
+      </tr>
+      <tr>
+        <td>
+         <%= form_with model: CartItem.new, url: cart_items_path,method: :post do |f| %>
+         <%= f.hidden_field :item_id, :value => @item.id %>
+         <%= f.select :amount, [['1個',1], ['2個',2], ['3個',3]] %>
+         <%= f.submit "カートに入れる",class: "btn btn-success" %>
+         <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>

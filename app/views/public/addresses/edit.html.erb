@@ -1,0 +1,21 @@
+配送先編集のedit
+
+<table class="table table-borderless" style="width:50%;margin-left:5%;margin-top:60px">
+  <tbody>
+    <%= form_with model: @address, url:address_path do |f| %>
+    <tr>
+      <td>郵便番号(ハイフンなし)</td>
+      <td><%= f.text_field :postal_code, autofocus: true %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= f.text_field :address, autofocus: true %></td>
+    </tr>
+    <tr>
+      <td>宛名</td>
+      <td><%= f.text_field :name, autofocus: true %></td>
+      <td><%= f.submit '変更内容を保存', class: "btn btn-success"  %></td>
+    </tr>
+  <tbody>
+</table>
+<% end %>

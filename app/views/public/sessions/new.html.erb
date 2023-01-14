@@ -1,0 +1,30 @@
+ログイン
+
+<table class="table table-borderless" style="width:30%;margin-left:30%;margin-top:70px">
+  <tbody>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <tr>
+      <td><%= f.label :"メールアドレス" %></td>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+  　</tr>
+    <tr>
+      <td><%= f.label :"パスワード" %></td>
+      <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit "ログイン", class: "btn btn-info" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<table class="table table-borderless" style="width:30%;margin-left:30%;margin-top:60px">
+  <tbody>
+    <tr>
+      <td>既に登録済みでない方</td>
+    </tr>
+    <tr>
+      <td><%= render "public/shared/links" %>からログインしてください。</td>
+    </tr>
+  </tbody>
+</table>
