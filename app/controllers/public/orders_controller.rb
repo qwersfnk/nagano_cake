@@ -46,7 +46,7 @@ class Public::OrdersController < ApplicationController
    )
    @order_detail.save
    end
-
+   @cart_items.destroy_all
    # 3. データをデータベースに保存するためのsaveメソッド実行
    redirect_to orders_complete_path
   end
