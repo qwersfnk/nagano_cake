@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get '/customers/infomation/edit', to:'customers#edit'
     patch '/customers/infomation', to:'customers#update'
     get '/customers/withdrawal', to:'customers#withdrawal'
-    patch '/customers', to:'customers#withdraw'
+    patch '/customers/withdraw', to:'customers#withdraw'
     root to: 'homes#top'
     resources :items
     delete '/cart_items/destroy_all', to:'cart_items#destroy_all'
