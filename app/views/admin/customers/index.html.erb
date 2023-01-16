@@ -23,7 +23,13 @@
         <% end %>
       </td>
       <td><%= customer.email %></td>
-      <td class="text-success">有効</td>
+        <td>
+        <% if customer.is_deleted? %>
+        退会
+        <% else %>
+        有効
+        <% end %>
+      </td>
     </tr>
     <% end %>
 
